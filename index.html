@@ -1,559 +1,1164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chauhan Home Made Food | Authentic Indian Takeaway</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --saffron:#e85d24;
-    --saffron-dark:#c8460f;
-    --cream:#fff8f0;
-    --deep:#2b1810;
-  }
-  *{font-family:'Poppins',sans-serif;}
-  h1,h2,h3,.font-display{font-family:'Playfair Display',serif;}
-  body{background:var(--cream); color:var(--deep); overflow-x:hidden;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chauhan Home Made Food | 5.0★ Authentic Indian Takeaway Modinagar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
-  .gradient-hero{
-    background: linear-gradient(135deg, #ff8a3d 0%, #e85d24 45%, #c8460f 100%);
-  }
-  .gradient-text{
-    background: linear-gradient(90deg,#e85d24,#ff9d5c);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-  .card-shadow{ box-shadow: 0 10px 40px -10px rgba(200,70,15,0.25); }
-  .glass{
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.25);
-  }
-  .btn-float{ transition: all .3s cubic-bezier(.4,0,.2,1); }
-  .btn-float:hover{ transform: translateY(-4px); box-shadow: 0 15px 30px -8px rgba(0,0,0,0.25); }
-
-  .marquee-track{
-    animation: marquee 30s linear infinite;
-  }
-  @keyframes marquee{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
-  }
-
-  .stagger-in{ opacity:0; transform: translateY(30px); transition: all .7s cubic-bezier(.4,0,.2,1); }
-  .stagger-in.show{ opacity:1; transform: translateY(0); }
-
-  .tab-btn.active{
-    background: var(--saffron);
-    color:white;
-  }
-  .accordion-content{ max-height:0; overflow:hidden; transition: max-height .4s ease; }
-
-  .spice-badge{
-    display:inline-flex; align-items:center; gap:4px;
-  }
-
-  ::-webkit-scrollbar{ width:8px; }
-  ::-webkit-scrollbar-thumb{ background: var(--saffron); border-radius:10px; }
-  ::-webkit-scrollbar-track{ background: #ffe8d6; }
-
-  .food-img{
-    transition: transform .6s cubic-bezier(.4,0,.2,1);
-  }
-  .food-card:hover .food-img{ transform: scale(1.1); }
-
-  .pulse-dot{
-    animation: pulse-dot 2s infinite;
-  }
-  @keyframes pulse-dot{
-    0%,100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-    50%{ box-shadow: 0 0 0 8px rgba(34,197,94,0); }
-  }
-
-  .rotate-badge{ animation: rotate 20s linear infinite; }
-  @keyframes rotate{ from{transform:rotate(0);} to{transform:rotate(360deg);} }
-
-  .star-fill{ color:#facc15; }
-
-  .modal-bg{ backdrop-filter: blur(6px); }
-
-  input, textarea { font-family:'Poppins',sans-serif; }
-
-  .nav-link{ position:relative; }
-  .nav-link::after{
-    content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px;
-    background: var(--saffron); transition: width .3s ease;
-  }
-  .nav-link:hover::after{ width:100%; }
-</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        spice: '#B91C1C',
+                        turmeric: '#F59E0B',
+                        leaf: '#15803D'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .veg-icon {
+            border: 2px solid #16a34a;
+            border-radius: 4px;
+            padding: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+        }
+        .veg-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #16a34a;
+            border-radius: 50%;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ea580c;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body class="antialiased">
+<body class="bg-[#FFFDF9] text-gray-800 font-sans antialiased selection:bg-brand-500 selection:text-white pb-20 md:pb-0">
 
-<!-- ===================== NAVBAR ===================== -->
-<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between py-4">
-    <div class="flex items-center gap-3">
-      <div class="w-11 h-11 rounded-full gradient-hero flex items-center justify-center text-white font-bold text-lg shadow-lg">CH</div>
-      <div>
-        <h1 class="text-white font-display font-bold text-lg leading-tight" id="brandName">Chauhan Home Made Food</h1>
-        <p class="text-white/70 text-xs">Home-style Indian Takeaway</p>
-      </div>
-    </div>
-    <div class="hidden md:flex items-center gap-8 text-white/90 text-sm font-medium">
-      <a href="#overview" class="nav-link">Overview</a>
-      <a href="#menu" class="nav-link">Menu</a>
-      <a href="#reviews" class="nav-link">Reviews</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-    <div class="flex items-center gap-3">
-      <a href="tel:08923174534" class="hidden sm:flex items-center gap-2 bg-white text-orange-600 font-semibold px-4 py-2 rounded-full text-sm btn-float">
-        📞 Call Now
-      </a>
-      <button id="menuBtn" class="md:hidden text-white text-2xl">☰</button>
-    </div>
-  </div>
-  <!-- mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-black/70 backdrop-blur-lg px-5 pb-4 flex flex-col gap-3 text-white/90">
-    <a href="#overview" class="py-1">Overview</a>
-    <a href="#menu" class="py-1">Menu</a>
-    <a href="#reviews" class="py-1">Reviews</a>
-    <a href="#about" class="py-1">About</a>
-    <a href="#contact" class="py-1">Contact</a>
-  </div>
-</nav>
-
-<!-- ===================== HERO ===================== -->
-<header id="overview" class="gradient-hero relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-  <div class="absolute -top-20 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 -left-24 w-72 h-72 bg-yellow-300/20 rounded-full blur-3xl"></div>
-
-  <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="stagger-in show">
-        <div class="inline-flex items-center gap-2 glass px-4 py-1.5 rounded-full text-white text-xs font-semibold mb-5">
-          <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
-          OPEN NOW · Closes 11 PM
+    <!-- Top Notice Bar -->
+    <div class="bg-gradient-to-r from-brand-800 via-brand-700 to-brand-900 text-white text-xs sm:text-sm py-2 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-green-500 text-white animate-pulse">
+                    ● Open Now
+                </span>
+                <span>Closes at 11:00 PM &bull; Pure Fresh Home-Style Indian Meals</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <span class="flex items-center gap-1.5"><i class="fas fa-map-marker-alt text-brand-200"></i> Devender Puri, Modinagar</span>
+                <a href="tel:08923174534" class="font-bold underline hover:text-brand-200 flex items-center gap-1"><i class="fas fa-phone-alt"></i> 089231 74534</a>
+            </div>
         </div>
-        <h2 class="text-4xl md:text-6xl font-display font-extrabold text-white leading-tight mb-4">
-          Real Homemade <br> <span class="text-yellow-200">Indian Flavours</span>
-        </h2>
-        <p class="text-white/85 text-lg mb-6 max-w-md">
-          Comforting, ghar-jaisa khana cooked fresh daily. Order in for a warm, authentic taste of home in Modinagar.
-        </p>
+    </div>
 
-        <div class="flex items-center gap-4 mb-8">
-          <div class="flex text-2xl star-fill">★★★★★</div>
-          <span class="text-white font-semibold">5.0</span>
-          <span class="text-white/70 text-sm">(5 reviews)</span>
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-orange-100 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+            <!-- Brand Info -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fas fa-utensils text-xl"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl sm:text-2xl font-black tracking-tight text-gray-900 uppercase">Chauhan</span>
+                        <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-md border border-amber-200">Home Made</span>
+                    </div>
+                    <p class="text-xs text-brand-600 font-semibold tracking-wide">Desi Swad &bull; 100% Shuddh & Fresh</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+                <a href="#overview" class="hover:text-brand-600 transition-colors">Overview</a>
+                <a href="#menu" class="hover:text-brand-600 transition-colors">Menu</a>
+                <a href="#reviews" class="hover:text-brand-600 transition-colors flex items-center gap-1">
+                    Reviews <span class="bg-emerald-100 text-emerald-700 text-[11px] px-1.5 py-0.2 rounded font-bold">5.0 ★</span>
+                </a>
+                <a href="#photos" class="hover:text-brand-600 transition-colors">Photos</a>
+                <a href="#about" class="hover:text-brand-600 transition-colors">About Us</a>
+                <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Header Action CTAs -->
+            <div class="flex items-center gap-3">
+                <button onclick="openCart()" class="relative p-2.5 rounded-xl bg-orange-50 text-brand-700 hover:bg-orange-100 transition-colors border border-orange-200">
+                    <i class="fas fa-shopping-bag text-lg"></i>
+                    <span id="cart-count-badge" class="absolute -top-1.5 -right-1.5 bg-brand-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                </button>
+                <a href="https://wa.me/918923174534?text=Hello%20Chauhan%20Home%20Made%20Food,%20I%20would%20like%20to%20order%20food." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition shadow-md shadow-emerald-600/20">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Order on WhatsApp</span>
+                </a>
+            </div>
         </div>
+    </header>
 
-        <div class="flex flex-wrap gap-3">
-          <a href="tel:08923174534" class="btn-float bg-white text-orange-600 font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg">
-            📞 Call
-          </a>
-          <a href="https://wa.me/918923174534" target="_blank" class="btn-float bg-green-500 text-white font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg">
-            💬 WhatsApp
-          </a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=C+446+Modinagar+Niwari+Rd+devender+Puri+Modinagar+Uttar+Pradesh+201201" target="_blank" class="btn-float glass text-white font-bold px-6 py-3 rounded-full flex items-center gap-2">
-            🧭 Directions
-          </a>
-          <button onclick="shareSite()" class="btn-float glass text-white font-bold px-6 py-3 rounded-full flex items-center gap-2">
-            🔗 Share
-          </button>
+    <!-- Hero Section -->
+    <section id="overview" class="relative overflow-hidden pt-8 pb-14 bg-gradient-to-b from-brand-50/70 via-white to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Details Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Rating & Status Chip -->
+                    <div class="flex flex-wrap items-center gap-3">
+                        <div class="inline-flex items-center gap-1.5 bg-emerald-700 text-white px-3 py-1 rounded-lg text-sm font-extrabold shadow-sm">
+                            <span>5.0</span>
+                            <div class="flex text-amber-300 text-xs">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-xs text-white/90 font-medium ml-0.5">(5)</span>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-500">&bull;</span>
+                        <span class="text-sm font-bold text-gray-800 bg-orange-100/80 px-2.5 py-1 rounded-md text-brand-900 border border-orange-200/50">
+                            Indian Takeaway
+                        </span>
+                        <span class="text-sm font-semibold text-gray-500">&bull;</span>
+                        <span class="text-sm font-semibold text-emerald-600 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Open Now &bull; Closes 11 pm
+                        </span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-950 tracking-tight leading-tight">
+                            CHAUHAN <br/>
+                            <span class="text-brand-600 font-serif italic font-normal">Home Made Food</span>
+                        </h1>
+                        <p class="mt-3 text-lg sm:text-xl text-gray-600 leading-relaxed font-normal">
+                            Ghar Jaisa Shuddh, Swadist aur Taaza Khana. Prepared fresh in a clean home kitchen with pure ingredients, authentic spices, and loving care.
+                        </p>
+                    </div>
+
+                    <!-- Key highlights badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-orange-100 shadow-sm">
+                            <i class="fas fa-seedling text-emerald-600 text-lg"></i>
+                            <span class="text-xs font-bold text-gray-700">100% Shuddh Veg</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-orange-100 shadow-sm">
+                            <i class="fas fa-fire-burner text-brand-600 text-lg"></i>
+                            <span class="text-xs font-bold text-gray-700">Fresh Cooked on Order</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-orange-100 shadow-sm col-span-2 sm:col-span-1">
+                            <i class="fas fa-hand-holding-heart text-amber-500 text-lg"></i>
+                            <span class="text-xs font-bold text-gray-700">Zero Artificial Additives</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Tool Bar (Google Maps style prominent buttons) -->
+                    <div class="pt-2 flex flex-wrap gap-2.5 sm:gap-3">
+                        <a href="tel:08923174534" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-600/30 transition transform active:scale-95">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                        <a href="https://maps.google.com/?q=C+446,+Modinagar+-+Niwari+Rd,+devender+Puri,+Modinagar,+Uttar+Pradesh+201201" target="_blank" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-lg shadow-blue-600/25 transition transform active:scale-95">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                        <a href="https://wa.me/918923174534?text=Hi%20Chauhan%20Home%20Made%20Food,%20please%20send%20today's%20menu" target="_blank" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-600/25 transition transform active:scale-95">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button onclick="shareListing()" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm transition">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <button id="saveBtn" onclick="toggleSave()" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-sm transition">
+                            <i id="saveIcon" class="far fa-bookmark"></i> <span id="saveText">Save</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Location & Hours Accordion Strip -->
+                    <div class="p-4 rounded-2xl bg-white border border-gray-200/80 shadow-sm space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-map-pin text-brand-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="text-xs uppercase font-extrabold text-gray-400 tracking-wider">Address</h4>
+                                <p class="text-sm font-semibold text-gray-800">
+                                    C 446, Modinagar - Niwari Rd, Devender Puri, Modinagar, Uttar Pradesh 201201
+                                </p>
+                            </div>
+                        </div>
+                        <div class="h-px bg-gray-100"></div>
+                        <div class="flex items-center justify-between text-xs sm:text-sm font-medium">
+                            <div class="flex items-center gap-2 text-gray-600">
+                                <i class="far fa-clock text-brand-600"></i>
+                                <span>Takeaway Timings: <strong>11:00 AM – 11:00 PM</strong> (All 7 Days)</span>
+                            </div>
+                            <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">Order Ready in 20m</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Visual Hero & Interactive Special Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Hero Showcase Card -->
+                        <div class="relative overflow-hidden rounded-3xl shadow-2xl bg-white border border-orange-100 group">
+                            <div class="relative h-72 sm:h-80 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80" 
+                                     alt="Authentic Chauhan Home Made Indian Food Thali" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-black/20"></div>
+                                <div class="absolute top-4 left-4 bg-brand-600 text-white font-bold text-xs uppercase px-3 py-1 rounded-full shadow">
+                                    🌟 Today's Special
+                                </div>
+                                <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                                    <i class="fas fa-camera"></i> Photos (12+)
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4 text-white">
+                                    <div class="flex items-center gap-2">
+                                        <div class="veg-icon bg-white"><div class="veg-dot"></div></div>
+                                        <span class="text-xs uppercase font-bold tracking-wider text-amber-300">Signature Meal</span>
+                                    </div>
+                                    <h3 class="text-2xl font-bold font-serif">Chauhan Special Shahi Thali</h3>
+                                    <p class="text-xs text-gray-200 mt-0.5">Paneer Sabzi + Dal Fry + 4 Butter Tawa Roti + Jeera Rice + Salad + Sweet</p>
+                                </div>
+                            </div>
+
+                            <div class="p-5 bg-white">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <span class="text-xs text-gray-400 line-through">₹220</span>
+                                        <div class="text-2xl font-black text-gray-900">₹160 <span class="text-xs font-normal text-gray-500">/ Full Plate</span></div>
+                                    </div>
+                                    <button onclick="addToCart(1, 'Chauhan Special Shahi Thali', 160)" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-md shadow-brand-600/20 active:scale-95">
+                                        <i class="fas fa-plus"></i> Add To Order
+                                    </button>
+                                </div>
+                                <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-xs text-gray-500">
+                                    <span><i class="fas fa-check text-green-600 mr-1"></i> Hot & Packed Fresh</span>
+                                    <span><i class="fas fa-shield-alt text-brand-600 mr-1"></i> 100% Hygienic</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Review Badge -->
+                        <div class="absolute -bottom-6 -left-4 sm:left-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1 text-amber-500 text-xs">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-900 font-bold text-xs ml-1">5.0 / 5.0</span>
+                                </div>
+                                <p class="text-xs text-gray-600 font-semibold">100% Recommended in Modinagar</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="relative stagger-in show" style="transition-delay:.15s">
-        <div class="relative rounded-3xl overflow-hidden card-shadow border-4 border-white/30 rotate-1">
-          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1000&auto=format&fit=crop" class="w-full h-[420px] object-cover" alt="Indian Thali">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          <div class="absolute bottom-5 left-5 text-white">
-            <p class="font-display font-bold text-2xl">Signature Thali</p>
-            <p class="text-white/80 text-sm">Fresh & made to order</p>
-          </div>
+    <!-- Quick Stats & Hygiene Highlights -->
+    <section class="py-8 bg-white border-y border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 rounded-xl bg-orange-50/50">
+                    <div class="text-3xl font-black text-brand-600">5.0 ★</div>
+                    <div class="text-xs uppercase font-bold text-gray-500 mt-1">Google Rating (5/5)</div>
+                </div>
+                <div class="p-4 rounded-xl bg-orange-50/50">
+                    <div class="text-3xl font-black text-brand-600">100%</div>
+                    <div class="text-xs uppercase font-bold text-gray-500 mt-1">Pure Desi Ghee & Oil</div>
+                </div>
+                <div class="p-4 rounded-xl bg-orange-50/50">
+                    <div class="text-3xl font-black text-brand-600">20 Min</div>
+                    <div class="text-xs uppercase font-bold text-gray-500 mt-1">Average Prep Time</div>
+                </div>
+                <div class="p-4 rounded-xl bg-orange-50/50">
+                    <div class="text-3xl font-black text-brand-600">0</div>
+                    <div class="text-xs uppercase font-bold text-gray-500 mt-1">Artificial Colors/Soda</div>
+                </div>
+            </div>
         </div>
-        <div class="absolute -bottom-8 -left-8 w-32 h-32 rounded-full glass rotate-badge hidden md:flex items-center justify-center text-white text-center text-xs font-bold p-2">
-          100% HOME<br>COOKED
+    </section>
+
+    <!-- Menu Section (Interactive with Tab Filtering & Add to Cart) -->
+    <section id="menu" class="py-14 bg-[#FCFBF8]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-xs">Authentic Home Recipes</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-1">Our Ghar Ka Khana Menu</h2>
+                <p class="text-gray-600 text-sm mt-2">Prepared only after you order to ensure piping hot freshness and homely taste.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+                    <button onclick="filterMenu('all', this)" class="menu-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-brand-600 text-white shadow-md transition">All Items</button>
+                    <button onclick="filterMenu('thalis', this)" class="menu-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-orange-50 border border-gray-200 transition">Thali Specials</button>
+                    <button onclick="filterMenu('sabzi', this)" class="menu-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-orange-50 border border-gray-200 transition">Paneer & Curries</button>
+                    <button onclick="filterMenu('breads', this)" class="menu-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-orange-50 border border-gray-200 transition">Roti & Paratha</button>
+                    <button onclick="filterMenu('rice', this)" class="menu-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-orange-50 border border-gray-200 transition">Rice & Dal</button>
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="thalis">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Special Regular Thali" class="w-full h-full object-cover">
+                            <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Best Seller</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Regular Ghar Thali</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">Dal Tadka + Seasonal Sabzi + 4 Tawa Chapati + Rice + Homemade Achar + Onion salad.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹110</span>
+                        <button onclick="addToCart(2, 'Regular Ghar Thali', 110)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="thalis">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Chauhan Shahi Deluxe Thali" class="w-full h-full object-cover">
+                            <span class="absolute top-2 left-2 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">Royal Choice</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Shahi Deluxe Thali</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">Matar Paneer / Kadai Paneer + Dal Makhani + 4 Ghee Roti / 2 Lachha Paratha + Jeera Rice + Raita + Gulab Jamun.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹180</span>
+                        <button onclick="addToCart(3, 'Shahi Deluxe Thali', 180)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="sabzi">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Paneer Butter Masala" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Home-Style Paneer Butter Masala</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">Soft fresh malai paneer cooked in velvety tomato gravy with mild home spices and pure butter.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹140 <span class="text-xs font-normal text-gray-500">/ 300ml</span></span>
+                        <button onclick="addToCart(4, 'Paneer Butter Masala', 140)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="rice">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?auto=format&fit=crop&w=600&q=80" alt="Dal Fry Tadka" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Yellow Dal Tadka (Desi Ghee)</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">Arhar dal infused with cumin seeds, garlic, green chilies, and hing tarka in pure ghee.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹90</span>
+                        <button onclick="addToCart(5, 'Yellow Dal Tadka Desi Ghee', 90)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="breads">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Aloo Pyaz Paratha" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Stuffed Aloo-Pyaz Paratha (2 Pcs)</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">Crispy tawa fried stuffed parathas served with homemade tangy pickle and curd.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹70</span>
+                        <button onclick="addToCart(6, 'Stuffed Aloo Paratha (2 Pcs)', 70)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-item bg-white rounded-2xl p-4 border border-orange-100 shadow-sm hover:shadow-md transition flex flex-col justify-between" data-category="breads">
+                    <div>
+                        <div class="relative h-44 rounded-xl overflow-hidden mb-3">
+                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80" alt="Butter Tawa Roti" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-center gap-1.5 mb-1">
+                            <div class="veg-icon"><div class="veg-dot"></div></div>
+                            <h3 class="font-bold text-gray-900 text-base">Butter Phulka Roti (Pack of 5)</h3>
+                        </div>
+                        <p class="text-xs text-gray-500 line-clamp-2">100% whole wheat chakki atta rotis puffed on tawa and brushed with pure amul butter.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <span class="text-lg font-black text-gray-900">₹40</span>
+                        <button onclick="addToCart(7, 'Butter Phulka Roti (5 Pcs)', 40)" class="px-4 py-1.5 rounded-lg bg-orange-100 text-brand-700 hover:bg-brand-600 hover:text-white font-bold text-xs transition">
+                            + Add Item
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Custom Order Note Banner -->
+            <div class="mt-10 p-6 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-amber-200 text-amber-800 flex items-center justify-center shrink-0 text-xl font-bold">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Want Custom Spice Level or Special Jain Prep?</h4>
+                        <p class="text-xs text-gray-600">Less oil, no onion-garlic, or soft rotis for elders? Simply mention it while ordering on WhatsApp or Phone.</p>
+                    </div>
+                </div>
+                <a href="tel:08923174534" class="shrink-0 bg-brand-600 text-white font-bold text-xs px-5 py-3 rounded-xl hover:bg-brand-700 transition">
+                    Call 089231 74534
+                </a>
+            </div>
+
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+    </section>
 
-<!-- Info marquee -->
-<div class="bg-orange-900 py-3 overflow-hidden">
-  <div class="flex whitespace-nowrap marquee-track">
-    <div class="flex gap-10 text-white/80 text-sm font-medium pr-10">
-      <span>🌶️ Fresh Spices Daily</span>
-      <span>🍛 Homestyle Curries</span>
-      <span>🥘 No Preservatives</span>
-      <span>📍 Modinagar, Uttar Pradesh</span>
-      <span>⏰ Open till 11 PM</span>
-      <span>🚴 Fast Takeaway</span>
-      <span>🌶️ Fresh Spices Daily</span>
-      <span>🍛 Homestyle Curries</span>
-      <span>🥘 No Preservatives</span>
-      <span>📍 Modinagar, Uttar Pradesh</span>
-      <span>⏰ Open till 11 PM</span>
-      <span>🚴 Fast Takeaway</span>
-    </div>
-  </div>
-</div>
+    <!-- Reviews Section (Detailed 5.0 Star Feedback) -->
+    <section id="reviews" class="py-14 bg-white border-t border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-emerald-700 font-bold uppercase tracking-wider text-xs">Customer Satisfaction</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-1">Google Reviews & Ratings</h2>
+                    <p class="text-gray-500 text-sm mt-1">Real ratings from foodies in Modinagar & nearby areas</p>
+                </div>
 
-<!-- ===================== QUICK INFO CARDS ===================== -->
-<section class="max-w-7xl mx-auto px-5 md:px-8 -mt-8 relative z-20 mb-20">
-  <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
-    <div class="bg-white rounded-2xl p-5 card-shadow stagger-in">
-      <div class="text-3xl mb-2">⭐</div>
-      <p class="font-bold text-xl">5.0 / 5</p>
-      <p class="text-sm text-gray-500">5 Google reviews</p>
-    </div>
-    <div class="bg-white rounded-2xl p-5 card-shadow stagger-in" style="transition-delay:.1s">
-      <div class="text-3xl mb-2">⏰</div>
-      <p class="font-bold text-xl">Open Now</p>
-      <p class="text-sm text-gray-500">Closes 11:00 PM</p>
-    </div>
-    <div class="bg-white rounded-2xl p-5 card-shadow stagger-in" style="transition-delay:.2s">
-      <div class="text-3xl mb-2">📍</div>
-      <p class="font-bold text-xl">Modinagar</p>
-      <p class="text-sm text-gray-500">Uttar Pradesh 201201</p>
-    </div>
-    <div class="bg-white rounded-2xl p-5 card-shadow stagger-in" style="transition-delay:.3s">
-      <div class="text-3xl mb-2">🚗</div>
-      <p class="font-bold text-xl">Takeaway</p>
-      <p class="text-sm text-gray-500">Order & pick up fresh</p>
-    </div>
-  </div>
-</section>
+                <!-- Google Rating Card -->
+                <div class="bg-orange-50 border border-orange-200 p-4 rounded-2xl flex items-center gap-5 shadow-sm">
+                    <div class="text-center border-r border-orange-200 pr-5">
+                        <div class="text-4xl font-black text-gray-900">5.0</div>
+                        <div class="flex text-amber-500 text-xs mt-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-[11px] text-gray-500 mt-1 font-semibold">5 out of 5</div>
+                    </div>
+                    <div class="text-xs space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-600 font-medium">5 star</span>
+                            <div class="w-24 bg-gray-200 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-600 h-full w-full"></div>
+                            </div>
+                            <span class="font-bold text-gray-700">100%</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400">
+                            <span>4 star</span>
+                            <div class="w-24 bg-gray-200 h-2 rounded-full"></div>
+                            <span>0%</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400">
+                            <span>3 star</span>
+                            <div class="w-24 bg-gray-200 h-2 rounded-full"></div>
+                            <span>0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- ===================== MENU ===================== -->
-<section id="menu" class="max-w-7xl mx-auto px-5 md:px-8 py-16">
-  <div class="text-center mb-12 stagger-in">
-    <p class="gradient-text font-bold uppercase tracking-widest text-sm mb-2">Our Menu</p>
-    <h2 class="text-3xl md:text-5xl font-display font-extrabold">Taste Made With Love</h2>
-    <p class="text-gray-500 mt-3 max-w-xl mx-auto">Every dish is prepared fresh in small batches — just like at home.</p>
-  </div>
+            <!-- Review Cards Grid (Reflecting the 5.0 (5 reviews)) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="p-5 rounded-2xl bg-[#FFFDF9] border border-gray-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm shadow">
+                                    A
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-900">Amit Sharma</h4>
+                                    <p class="text-[11px] text-gray-400">Local Guide &bull; Modinagar</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">
+                            "Best home cooked food in Modinagar! The rotis were extremely soft and just like mom makes. Dal tadka and paneer were delicious without excess oil. Highly recommended for students and working professionals!"
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400">
+                        <span>Verified Takeaway Customer</span>
+                        <span>1 week ago</span>
+                    </div>
+                </div>
 
-  <div class="flex flex-wrap justify-center gap-3 mb-10 stagger-in">
-    <button class="tab-btn active px-5 py-2 rounded-full font-semibold bg-orange-100 text-orange-700 transition" data-tab="all">All</button>
-    <button class="tab-btn px-5 py-2 rounded-full font-semibold bg-orange-100 text-orange-700 transition" data-tab="curries">Curries</button>
-    <button class="tab-btn px-5 py-2 rounded-full font-semibold bg-orange-100 text-orange-700 transition" data-tab="breads">Breads</button>
-    <button class="tab-btn px-5 py-2 rounded-full font-semibold bg-orange-100 text-orange-700 transition" data-tab="rice">Rice</button>
-    <button class="tab-btn px-5 py-2 rounded-full font-semibold bg-orange-100 text-orange-700 transition" data-tab="sides">Sides & Sweets</button>
-  </div>
+                <!-- Review 2 -->
+                <div class="p-5 rounded-2xl bg-[#FFFDF9] border border-gray-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-10 h-10 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm shadow">
+                                    R
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-900">Rohit Chauhan</h4>
+                                    <p class="text-[11px] text-gray-400">Devender Puri</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">
+                            "Packaging was top notch, piping hot delivery. Chauhan ji gives generous portions. 5/5 stars without any doubt for taste and hygiene."
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400">
+                        <span>Takeaway Order</span>
+                        <span>2 weeks ago</span>
+                    </div>
+                </div>
 
-  <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
-</section>
+                <!-- Review 3 -->
+                <div class="p-5 rounded-2xl bg-[#FFFDF9] border border-gray-200/80 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm shadow">
+                                    P
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-900">Pooja Verma</h4>
+                                    <p class="text-[11px] text-gray-400">Modinagar Niwari Rd</p>
+                                </div>
+                            </div>
+                            <div class="flex text-amber-400 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed italic">
+                            "The special thali is unmatched in quality and price. We order almost every weekend. Pure homemade taste with zero stomach heaviness afterwards!"
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400">
+                        <span>Family Dinner</span>
+                        <span>3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
 
-<!-- ===================== ABOUT ===================== -->
-<section id="about" class="bg-orange-50 py-20">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-12 items-center">
-    <div class="stagger-in">
-      <div class="grid grid-cols-2 gap-4">
-        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" class="rounded-2xl h-56 w-full object-cover mt-8 card-shadow" alt="cooking">
-        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" class="rounded-2xl h-56 w-full object-cover card-shadow" alt="spices">
-        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=600&auto=format&fit=crop" class="rounded-2xl h-56 w-full object-cover card-shadow" alt="thali">
-        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=600&auto=format&fit=crop" class="rounded-2xl h-56 w-full object-cover mt-8 card-shadow" alt="curry">
-      </div>
-    </div>
-    <div class="stagger-in" style="transition-delay:.15s">
-      <p class="gradient-text font-bold uppercase tracking-widest text-sm mb-2">Our Story</p>
-      <h2 class="text-3xl md:text-4xl font-display font-extrabold mb-5">A Kitchen Built On Family Recipes</h2>
-      <p class="text-gray-600 mb-4 leading-relaxed">
-        Chauhan Home Made Food started with a simple idea — bring the warmth and taste of a home kitchen to everyone in Modinagar. Every recipe is passed down through generations, cooked with fresh ingredients and genuine care, with no shortcuts and no compromise on quality.
-      </p>
-      <p class="text-gray-600 mb-6 leading-relaxed">
-        Whether you're craving a comforting dal-chawal or a rich paneer curry, we prepare it fresh, just for you — because food made with love always tastes better.
-      </p>
-      <div class="grid grid-cols-3 gap-4 mb-8">
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-orange-600">5+</p>
-          <p class="text-xs text-gray-500">Years Serving</p>
+            <!-- Review Action & Form Trigger -->
+            <div class="text-center mt-8">
+                <button onclick="openReviewModal()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 text-xs font-bold transition shadow-sm">
+                    <i class="fas fa-pen"></i> Write a Review
+                </button>
+            </div>
+
         </div>
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-orange-600">100%</p>
-          <p class="text-xs text-gray-500">Homemade</p>
+    </section>
+
+    <!-- Photos Showcase Section -->
+    <section id="photos" class="py-14 bg-gradient-to-b from-[#FCFBF8] to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <span class="text-brand-600 font-bold uppercase tracking-wider text-xs">Visual Feast</span>
+                    <h2 class="text-3xl font-black text-gray-900 mt-1">Photo Gallery</h2>
+                </div>
+                <span class="text-xs text-gray-500 font-semibold">Kitchen & Food Snapshots</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div class="group relative rounded-2xl overflow-hidden h-44 sm:h-52 cursor-pointer shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Fresh Thali" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">Thali Prep</div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-44 sm:h-52 cursor-pointer shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Tawa Rotis" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">Soft Tawa Rotis</div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-44 sm:h-52 cursor-pointer shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Paneer Gravy" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">Paneer Special</div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-44 sm:h-52 cursor-pointer shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Authentic Spices" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">Pure Spices Used</div>
+                </div>
+            </div>
         </div>
-        <div class="text-center">
-          <p class="text-3xl font-extrabold text-orange-600">5.0★</p>
-          <p class="text-xs text-gray-500">Customer Rating</p>
+    </section>
+
+    <!-- About & Hygiene Promise -->
+    <section id="about" class="py-14 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="text-brand-600 font-bold uppercase tracking-wider text-xs">Our Commitment</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-1 leading-tight">
+                        Healthy Home Cooked Meals, Crafted with Family Traditions
+                    </h2>
+                    <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                        At <strong>CHAUHAN HOME MADE FOOD</strong>, we believe that food is not just business; it is love served on a plate. Located conveniently on Modinagar - Niwari Road in Devender Puri, we cater to families, students, and working professionals longing for healthy, unadulterated home meals.
+                    </p>
+                    
+                    <div class="mt-6 space-y-3.5">
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900">Filtered RO Water & Pure Cooking Medium</h4>
+                                <p class="text-xs text-gray-500">No cheap commercial oils. Only trusted brands and homemade ghee.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900">Daily Fresh Vegetables from Mandi</h4>
+                                <p class="text-xs text-gray-500">Purchased fresh each morning, washed thoroughly, and cooked to perfection.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-900">Eco-Friendly & Spill-Proof Packaging</h4>
+                                <p class="text-xs text-gray-500">Packed in food-grade silver containers so your meal remains warm and intact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-brand-600 to-brand-800 rounded-3xl p-8 text-white relative shadow-xl overflow-hidden">
+                    <div class="relative z-10 space-y-6">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold">Tiffin & Monthly Mess Facility</span>
+                        <h3 class="text-2xl sm:text-3xl font-black">Daily Tiffin Subscription Available</h3>
+                        <p class="text-brand-100 text-xs sm:text-sm leading-relaxed">
+                            Looking for regular lunch or dinner delivery in Modinagar? We provide daily changing healthy tiffin meals at extremely reasonable monthly packages.
+                        </p>
+                        <div class="p-4 bg-black/20 rounded-2xl border border-white/10 space-y-2 text-xs">
+                            <div class="flex justify-between">
+                                <span>Monthly Lunch / Dinner:</span>
+                                <span class="font-bold">Affordable Rates</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Timing:</span>
+                                <span class="font-bold">12:30 PM & 8:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/918923174534?text=Hi,%20I%20am%20interested%20in%20Monthly%20Tiffin%20Service%20in%20Modinagar." target="_blank" class="block text-center bg-white text-brand-700 font-extrabold text-sm py-3 px-6 rounded-xl hover:bg-orange-50 transition shadow-lg">
+                            Inquire for Tiffin Service
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <a href="#contact" class="btn-float inline-block gradient-hero text-white font-bold px-7 py-3 rounded-full shadow-lg">Order Your Meal →</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ===================== PHOTOS GALLERY ===================== -->
-<section class="max-w-7xl mx-auto px-5 md:px-8 py-16">
-  <div class="text-center mb-10 stagger-in">
-    <p class="gradient-text font-bold uppercase tracking-widest text-sm mb-2">Gallery</p>
-    <h2 class="text-3xl md:text-5xl font-display font-extrabold">A Glimpse Into Our Kitchen</h2>
-  </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="galleryGrid">
-    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=500&auto=format&fit=crop" class="rounded-xl h-48 w-full object-cover cursor-pointer hover:scale-95 transition" onclick="openModal(this.src)">
-  </div>
-</section>
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-14 bg-orange-50/40 border-t border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-brand-600 font-bold uppercase tracking-wider text-xs">Visit or Pick Up</span>
+                <h2 class="text-3xl font-black text-gray-900 mt-1">Location & Contact</h2>
+                <p class="text-gray-600 text-sm mt-1">Easily accessible on Modinagar - Niwari Road</p>
+            </div>
 
-<!-- Image Modal -->
-<div id="imgModal" class="hidden fixed inset-0 z-[100] modal-bg bg-black/60 items-center justify-center p-5" onclick="closeModal()">
-  <img id="modalImg" src="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl">
-</div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-orange-100 flex flex-col justify-between space-y-6">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-600 flex items-center justify-center shrink-0 text-xl">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-gray-900 text-sm uppercase tracking-wider text-gray-400">Takeaway Outlet</h4>
+                                <p class="text-base font-bold text-gray-900 mt-1">CHAUHAN HOME MADE FOOD</p>
+                                <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                                    C 446, Modinagar - Niwari Rd, Devender Puri, Modinagar, Uttar Pradesh 201201
+                                </p>
+                            </div>
+                        </div>
 
-<!-- ===================== REVIEWS ===================== -->
-<section id="reviews" class="bg-gradient-to-b from-orange-50 to-white py-20">
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <div class="text-center mb-12 stagger-in">
-      <p class="gradient-text font-bold uppercase tracking-widest text-sm mb-2">Testimonials</p>
-      <h2 class="text-3xl md:text-5xl font-display font-extrabold">What Our Customers Say</h2>
-      <div class="flex items-center justify-center gap-2 mt-4">
-        <div class="flex text-2xl star-fill">★★★★★</div>
-        <span class="font-bold text-lg">5.0</span>
-        <span class="text-gray-500">based on 5 reviews</span>
-      </div>
-    </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center shrink-0 text-xl">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-gray-900 text-sm uppercase tracking-wider text-gray-400">Direct Phone</h4>
+                                <a href="tel:08923174534" class="text-lg font-black text-gray-900 hover:text-brand-600 transition block mt-0.5">
+                                    089231 74534
+                                </a>
+                                <p class="text-[11px] text-gray-500">Available on Call & WhatsApp</p>
+                            </div>
+                        </div>
 
-    <div class="grid md:grid-cols-3 gap-6" id="reviewsGrid"></div>
-  </div>
-</section>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 text-xl">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-gray-900 text-sm uppercase tracking-wider text-gray-400">Service Hours</h4>
+                                <p class="text-sm font-bold text-gray-900 mt-0.5">Open &bull; Closes 11:00 PM</p>
+                                <p class="text-xs text-gray-500">Monday to Sunday: 11:00 AM – 11:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- ===================== CONTACT / MAP ===================== -->
-<section id="contact" class="max-w-7xl mx-auto px-5 md:px-8 py-20">
-  <div class="grid md:grid-cols-2 gap-12">
-    <div class="stagger-in">
-      <p class="gradient-text font-bold uppercase tracking-widest text-sm mb-2">Get In Touch</p>
-      <h2 class="text-3xl md:text-4xl font-display font-extrabold mb-6">Visit or Order From Us</h2>
+                    <div class="pt-4 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+                        <a href="https://maps.google.com/?q=C+446,+Modinagar+-+Niwari+Rd,+devender+Puri,+Modinagar,+Uttar+Pradesh+201201" target="_blank" class="flex-1 py-3 px-4 rounded-xl bg-gray-900 hover:bg-black text-white font-bold text-xs text-center transition flex items-center justify-center gap-2">
+                            <i class="fas fa-location-arrow"></i> Open Google Maps
+                        </a>
+                        <a href="https://wa.me/918923174534" target="_blank" class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs text-center transition flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
 
-      <div class="space-y-5 mb-8">
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl">📍</div>
-          <div>
-            <p class="font-semibold">Address</p>
-            <p class="text-gray-500 text-sm">C 446, Modinagar - Niwari Rd, Devender Puri, Modinagar, Uttar Pradesh 201201</p>
-          </div>
+                <!-- Interactive Map UI Placeholder -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-4 shadow-sm border border-orange-100 flex flex-col justify-between">
+                    <div class="relative w-full h-72 sm:h-96 rounded-2xl overflow-hidden bg-slate-100 border border-gray-200">
+                        <!-- Embedded responsive Google Map iframe -->
+                        <iframe 
+                            class="w-full h-full border-0"
+                            loading="lazy" 
+                            allowfullscreen 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=C%20446,%20Modinagar%20-%20Niwari%20Rd,%20devender%20Puri,%20Modinagar,%20Uttar%20Pradesh%20201201&t=&z=16&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+                    <div class="flex items-center justify-between pt-3 px-2 text-xs text-gray-500">
+                        <span><i class="fas fa-car text-brand-600 mr-1"></i> Easy parking space for 2-wheelers & cars for quick pickup</span>
+                        <a href="https://maps.google.com/?q=C+446,+Modinagar+-+Niwari+Rd,+devender+Puri,+Modinagar,+Uttar+Pradesh+201201" target="_blank" class="text-brand-600 font-bold hover:underline">Get Route</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl">📞</div>
-          <div>
-            <p class="font-semibold">Phone</p>
-            <p class="text-gray-500 text-sm">089231 74534</p>
-          </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800">
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold">
+                            C
+                        </div>
+                        <span class="text-xl font-black uppercase tracking-wider">Chauhan Home Made Food</span>
+                    </div>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        Authentic home-style vegetarian Indian cuisine prepared freshly for takeaway and delivery in Modinagar. Highest hygiene standards & pure ingredients.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-amber-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-white font-bold ml-1">5.0 Star Rated Takeaway</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">Quick Links</h5>
+                    <ul class="text-xs text-gray-400 space-y-2">
+                        <li><a href="#overview" class="hover:text-white transition">Overview</a></li>
+                        <li><a href="#menu" class="hover:text-white transition">Our Menu</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition">Customer Reviews</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About Our Kitchen</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Directions & Location</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">Contact Modinagar</h5>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        C 446, Devender Puri,<br>
+                        Modinagar - Niwari Road,<br>
+                        Modinagar, UP 201201
+                    </p>
+                    <p class="text-xs text-brand-400 font-bold mt-2">
+                        <a href="tel:08923174534">📞 089231 74534</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3">
+                <p>&copy; <span id="currentYear"></span> Chauhan Home Made Food. All rights reserved.</p>
+                <p>Pure Vegetarian Home Kitchen &bull; Modinagar</p>
+            </div>
         </div>
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-xl">⏰</div>
-          <div>
-            <p class="font-semibold">Hours</p>
-            <p class="text-gray-500 text-sm">Open Daily · Closes 11:00 PM</p>
-          </div>
+    </footer>
+
+    <!-- Cart Drawer (Slide-over modal) -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden transition-all duration-300">
+        <div onclick="closeCart()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-4 sm:p-5 bg-brand-600 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-shopping-bag text-lg"></i>
+                        <h3 class="font-bold text-base">Your Takeaway Cart</h3>
+                    </div>
+                    <button onclick="closeCart()" class="p-1 hover:bg-white/20 rounded-lg transition">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Items list -->
+                <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
+                    <div id="emptyCartMsg" class="text-center py-12 text-gray-400 text-xs">
+                        <i class="fas fa-bowl-rice text-4xl mb-3 text-gray-300"></i>
+                        <p class="font-bold text-gray-500">Your food cart is empty</p>
+                        <p class="mt-1">Add fresh hot meals from our menu!</p>
+                    </div>
+                    <!-- Dynamically populated items -->
+                </div>
+
+                <!-- Cart Checkout Footer -->
+                <div class="p-4 sm:p-5 bg-gray-50 border-t border-gray-200 space-y-3">
+                    <div class="space-y-1.5 text-xs text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="cartSubtotal" class="font-bold text-gray-900">₹0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Packaging Charges</span>
+                            <span class="text-emerald-600 font-bold">FREE (Eco-Box)</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-black text-gray-900 pt-1 border-t border-gray-200">
+                            <span>Total Estimated</span>
+                            <span id="cartTotal" class="text-brand-600">₹0</span>
+                        </div>
+                    </div>
+
+                    <!-- Pickup details input -->
+                    <div class="pt-2">
+                        <label class="block text-[11px] font-bold text-gray-600 mb-1">Your Name & Delivery/Pickup Note:</label>
+                        <input id="customerNote" type="text" placeholder="e.g. Rahul, Pickup at 8:30 PM (mild spicy)" class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-brand-500">
+                    </div>
+
+                    <button onclick="sendOrderViaWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition">
+                        <i class="fab fa-whatsapp text-lg"></i> Send Order to WhatsApp
+                    </button>
+
+                    <p class="text-[10px] text-center text-gray-400">
+                        Direct order will be received at 089231 74534 with your items list.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="flex flex-wrap gap-3">
-        <a href="tel:08923174534" class="btn-float gradient-hero text-white font-bold px-6 py-3 rounded-full">📞 Call Now</a>
-        <a href="https://wa.me/918923174534" target="_blank" class="btn-float bg-green-500 text-white font-bold px-6 py-3 rounded-full">💬 WhatsApp</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=C+446+Modinagar+Niwari+Rd+devender+Puri+Modinagar+Uttar+Pradesh+201201" target="_blank" class="btn-float bg-orange-100 text-orange-700 font-bold px-6 py-3 rounded-full">🧭 Get Directions</a>
-      </div>
     </div>
 
-    <div class="stagger-in rounded-3xl overflow-hidden card-shadow" style="transition-delay:.15s">
-      <iframe
-        src="https://www.google.com/maps?q=C+446+Modinagar+Niwari+Rd+devender+Puri+Modinagar+Uttar+Pradesh+201201&output=embed"
-        width="100%" height="100%" style="border:0; min-height:420px;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA BAND ===================== -->
-<section class="gradient-hero py-16">
-  <div class="max-w-5xl mx-auto px-5 text-center stagger-in">
-    <h2 class="text-3xl md:text-4xl font-display font-extrabold text-white mb-4">Hungry? Let's Fix That.</h2>
-    <p class="text-white/85 mb-8 max-w-lg mx-auto">Call us or message on WhatsApp to place your order — fresh, homemade food ready for takeaway.</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="tel:08923174534" class="btn-float bg-white text-orange-600 font-bold px-8 py-4 rounded-full shadow-lg">📞 Call 089231 74534</a>
-      <a href="https://wa.me/918923174534" target="_blank" class="btn-float glass text-white font-bold px-8 py-4 rounded-full">💬 Chat on WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="bg-[#2b1810] text-white/80 pt-14 pb-6">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-4 gap-10 mb-10">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 rounded-full gradient-hero flex items-center justify-center text-white font-bold">CH</div>
-        <p class="font-display font-bold text-white text-lg">Chauhan Home Made Food</p>
-      </div>
-      <p class="text-sm text-white/60">Authentic, homestyle Indian food made fresh every day in Modinagar.</p>
-    </div>
-    <div>
-      <p class="font-semibold text-white mb-3">Quick Links</p>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#overview" class="hover:text-orange-400">Overview</a></li>
-        <li><a href="#menu" class="hover:text-orange-400">Menu</a></li>
-        <li><a href="#reviews" class="hover:text-orange-400">Reviews</a></li>
-        <li><a href="#about" class="hover:text-orange-400">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="font-semibold text-white mb-3">Contact</p>
-      <ul class="space-y-2 text-sm text-white/60">
-        <li>📍 C 446, Modinagar - Niwari Rd</li>
-        <li>📞 089231 74534</li>
-        <li>⏰ Open · Closes 11 PM</li>
-      </ul>
-    </div>
-    <div>
-      <p class="font-semibold text-white mb-3">Follow Us</p>
-      <div class="flex gap-3">
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition">📘</a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition">📷</a>
-        <a href="https://wa.me/918923174534" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 transition">💬</a>
-      </div>
-    </div>
-  </div>
-  <div class="border-t border-white/10 pt-6 text-center text-xs text-white/40">
-    © 2024 Chauhan Home Made Food. All rights reserved.
-  </div>
-</footer>
-
-<script>
-  // Navbar background on scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 40){
-      navbar.classList.add('bg-orange-900/90','backdrop-blur-lg','shadow-lg');
-    } else {
-      navbar.classList.remove('bg-orange-900/90','backdrop-blur-lg','shadow-lg');
-    }
-  });
-
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
-  }, {threshold: 0.15});
-  document.querySelectorAll('.stagger-in').forEach(el => observer.observe(el));
-
-  // Share
-  function shareSite(){
-    if(navigator.share){
-      navigator.share({title:'Chauhan Home Made Food', text:'Authentic homemade Indian food in Modinagar!', url: window.location.href});
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  }
-
-  // Image modal
-  function openModal(src){
-    document.getElementById('modalImg').src = src;
-    document.getElementById('imgModal').classList.remove('hidden');
-    document.getElementById('imgModal').classList.add('flex');
-  }
-  function closeModal(){
-    document.getElementById('imgModal').classList.add('hidden');
-    document.getElementById('imgModal').classList.remove('flex');
-  }
-
-  // ===================== MENU DATA =====================
-  const menuData = [
-    {name:"Paneer Butter Masala", cat:"curries", price:"₹180", desc:"Rich tomato gravy with soft paneer cubes & fresh cream.", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop", spicy:2},
-    {name:"Dal Makhani", cat:"curries", price:"₹150", desc:"Slow-cooked black lentils simmered overnight with butter.", img:"https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop", spicy:1},
-    {name:"Chicken Curry", cat:"curries", price:"₹220", desc:"Home-style chicken curry with aromatic spices.", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=600&auto=format&fit=crop", spicy:3},
-    {name:"Tandoori Roti", cat:"breads", price:"₹15", desc:"Fresh whole wheat bread from the clay oven.", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop", spicy:0},
-    {name:"Butter Naan", cat:"breads", price:"₹35", desc:"Soft leavened bread brushed with melted butter.", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop", spicy:0},
-    {name:"Garlic Naan", cat:"breads", price:"₹40", desc:"Naan topped with fresh garlic & coriander.", img:"https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?q=80&w=600&auto=format&fit=crop", spicy:1},
-    {name:"Veg Biryani", cat:"rice", price:"₹160", desc:"Fragrant basmati rice layered with spiced vegetables.", img:"https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600&auto=format&fit=crop", spicy:2},
-    {name:"Jeera Rice", cat:"rice", price:"₹110", desc:"Basmati rice tempered with roasted cumin.", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=600&auto=format&fit=crop", spicy:0},
-    {name:"Chicken Biryani", cat:"rice", price:"₹230", desc:"Layered rice & tender chicken cooked dum style.", img:"https://images.unsplash.com/photo-1563379091339-03246963d29a?q=80&w=600&auto=format&fit=crop", spicy:2},
-    {name:"Raita", cat:"sides", price:"₹40", desc:"Cool whisked yogurt with cucumber & spices.", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop", spicy:0},
-    {name:"Gulab Jamun", cat:"sides", price:"₹60", desc:"Soft milk dumplings soaked in rose-cardamom syrup.", img:"https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?q=80&w=600&auto=format&fit=crop", spicy:0},
-    {name:"Salad Platter", cat:"sides", price:"₹50", desc:"Fresh seasonal vegetables with lemon & chaat masala.", img:"https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=600&auto=format&fit=crop", spicy:0},
-  ];
-
-  const menuGrid = document.getElementById('menuGrid');
-  function renderMenu(filter){
-    menuGrid.innerHTML = '';
-    const items = filter === 'all' ? menuData : menuData.filter(i => i.cat === filter);
-    items.forEach((item,idx) => {
-      const spicyIcons = '🌶️'.repeat(item.spicy);
-      const card = document.createElement('div');
-      card.className = 'food-card bg-white rounded-2xl overflow-hidden card-shadow stagger-in show';
-      card.style.transitionDelay = (idx*0.05)+'s';
-      card.innerHTML = `
-        <div class="overflow-hidden h-48">
-          <img src="${item.img}" class="food-img w-full h-full object-cover" alt="${item.name}">
+    <!-- Review Form Modal -->
+    <div id="reviewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="text-center mb-4">
+                <h3 class="text-xl font-black text-gray-900">Review Chauhan Home Made Food</h3>
+                <p class="text-xs text-gray-500 mt-1">Rate your experience in Devender Puri, Modinagar</p>
+            </div>
+            <div class="flex justify-center gap-2 text-2xl text-amber-400 my-4 cursor-pointer">
+                <i class="fas fa-star" onclick="setRating(1)"></i>
+                <i class="fas fa-star" onclick="setRating(2)"></i>
+                <i class="fas fa-star" onclick="setRating(3)"></i>
+                <i class="fas fa-star" onclick="setRating(4)"></i>
+                <i class="fas fa-star" onclick="setRating(5)"></i>
+            </div>
+            <div class="space-y-3">
+                <input id="revName" type="text" placeholder="Your Name" class="w-full text-xs p-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500">
+                <textarea id="revComment" rows="3" placeholder="How was the food, taste, and packaging?" class="w-full text-xs p-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500"></textarea>
+                <button onclick="submitReview()" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition">Submit Feedback</button>
+            </div>
         </div>
-        <div class="p-5">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-lg">${item.name}</h3>
-            <span class="text-orange-600 font-bold">${item.price}</span>
-          </div>
-          <p class="text-sm text-gray-500 mb-3">${item.desc}</p>
-          <div class="flex items-center justify-between">
-            <span class="spice-badge text-xs text-gray-400">${spicyIcons || 'Mild'}</span>
-            <a href="https://wa.me/918923174534?text=${encodeURIComponent('Hi, I want to order '+item.name)}" target="_blank" class="text-xs font-bold text-orange-600 hover:underline">Order →</a>
-          </div>
-        </div>
-      `;
-      menuGrid.appendChild(card);
-    });
-  }
-  renderMenu('all');
+    </div>
 
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active','bg-orange-500','text-white'));
-      btn.classList.add('active');
-      renderMenu(btn.dataset.tab);
-    });
-  });
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <span id="toastMsg">Notification message</span>
+    </div>
 
-  // ===================== REVIEWS DATA =====================
-  const reviews = [
-    {name:"Ankit Sharma", text:"Best homemade food in Modinagar! Tastes exactly like ghar ka khana. Highly recommend the dal makhani.", initials:"AS"},
-    {name:"Priya Verma", text:"Ordered paneer butter masala and naan — absolutely delicious and fresh. Will order again!", initials:"PV"},
-    {name:"Rohit Chauhan", text:"Amazing quality and quick service. Feels like eating at home. 5 stars well deserved.", initials:"RC"},
-    {name:"Sneha Gupta", text:"Loved the biryani! Perfectly spiced and generous portions. Great value for money.", initials:"SG"},
-    {name:"Manish Kumar", text:"Very hygienic and tasty food. The staff is friendly and delivery was on time.", initials:"MK"},
-  ];
-  const reviewsGrid = document.getElementById('reviewsGrid');
-  reviews.forEach((r, idx) => {
-    const div = document.createElement('div');
-    div.className = 'bg-white rounded-2xl p-6 card-shadow stagger-in';
-    div.style.transitionDelay = (idx*0.08)+'s';
-    div.innerHTML = `
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-11 h-11 rounded-full gradient-hero flex items-center justify-center text-white font-bold">${r.initials}</div>
-        <div>
-          <p class="font-semibold">${r.name}</p>
-          <div class="flex text-yellow-400 text-sm">★★★★★</div>
-        </div>
-      </div>
-      <p class="text-gray-600 text-sm leading-relaxed">"${r.text}"</p>
-    `;
-    reviewsGrid.appendChild(div);
-  });
-  // Re-observe newly added elements
-  document.querySelectorAll('.stagger-in').forEach(el => observer.observe(el));
-</script>
+    <!-- Bottom Sticky Quick Action Bar (Mobile only) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 px-3 py-2 flex items-center justify-around shadow-2xl">
+        <a href="tel:08923174534" class="flex flex-col items-center text-gray-700 hover:text-brand-600">
+            <i class="fas fa-phone-alt text-base text-brand-600"></i>
+            <span class="text-[10px] font-bold mt-0.5">Call</span>
+        </a>
+        <a href="https://wa.me/918923174534?text=Hi%20Chauhan%20Home%20Made%20Food,%20I%20want%20to%20order%20food." class="flex flex-col items-center text-gray-700 hover:text-emerald-600">
+            <i class="fab fa-whatsapp text-lg text-emerald-600"></i>
+            <span class="text-[10px] font-bold mt-0.5">WhatsApp</span>
+        </a>
+        <a href="https://maps.google.com/?q=C+446,+Modinagar+-+Niwari+Rd,+devender+Puri,+Modinagar,+Uttar+Pradesh+201201" class="flex flex-col items-center text-gray-700 hover:text-blue-600">
+            <i class="fas fa-location-arrow text-base text-blue-600"></i>
+            <span class="text-[10px] font-bold mt-0.5">Direction</span>
+        </a>
+        <button onclick="openCart()" class="flex flex-col items-center text-gray-700 relative">
+            <i class="fas fa-shopping-bag text-base text-orange-600"></i>
+            <span class="text-[10px] font-bold mt-0.5">My Order</span>
+            <span id="mobile-cart-badge" class="absolute -top-1 right-2 bg-brand-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+    </div>
 
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Cart State
+        let cart = [];
+
+        function addToCart(id, name, price) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id, name, price, qty: 1 });
+            }
+            updateCartUI();
+            showToast(`Added "${name}" to your order`);
+        }
+
+        function updateCartQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cart-count-badge');
+            const mobileBadge = document.getElementById('mobile-cart-badge');
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMsg = document.getElementById('emptyCartMsg');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const totalEl = document.getElementById('cartTotal');
+
+            const totalCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
+            const totalPrice = cart.reduce((acc, curr) => acc + (curr.qty * curr.price), 0);
+
+            countBadge.textContent = totalCount;
+            if (mobileBadge) mobileBadge.textContent = totalCount;
+
+            if (cart.length === 0) {
+                emptyMsg.classList.remove('hidden');
+                container.innerHTML = '';
+                container.appendChild(emptyMsg);
+            } else {
+                emptyMsg.classList.add('hidden');
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-orange-50/60 rounded-xl border border-orange-100">
+                        <div class="pr-2">
+                            <h4 class="font-bold text-xs text-gray-900">${item.name}</h4>
+                            <span class="text-xs text-brand-700 font-extrabold">₹${item.price} each</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateCartQty(${item.id}, -1)" class="w-6 h-6 rounded-md bg-white border border-gray-300 flex items-center justify-center text-xs font-bold hover:bg-gray-100">-</button>
+                            <span class="text-xs font-bold text-gray-800 w-4 text-center">${item.qty}</span>
+                            <button onclick="updateCartQty(${item.id}, 1)" class="w-6 h-6 rounded-md bg-brand-600 text-white flex items-center justify-center text-xs font-bold hover:bg-brand-700">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            subtotalEl.textContent = `₹${totalPrice}`;
+            totalEl.textContent = `₹${totalPrice}`;
+        }
+
+        function openCart() {
+            document.getElementById('cartDrawer').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeCart() {
+            document.getElementById('cartDrawer').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // WhatsApp Order Generator
+        function sendOrderViaWhatsApp() {
+            if (cart.length === 0) {
+                showToast("Please add items to your cart first!");
+                return;
+            }
+
+            const phone = "918923174534";
+            const note = document.getElementById('customerNote').value.trim();
+            const totalPrice = cart.reduce((acc, curr) => acc + (curr.qty * curr.price), 0);
+
+            let msg = `*NEW TAKEAWAY ORDER - CHAUHAN HOME MADE FOOD*\n`;
+            msg += `----------------------------------------\n`;
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+            });
+            msg += `----------------------------------------\n`;
+            msg += `*Total Amount:* ₹${totalPrice}\n`;
+            if (note) {
+                msg += `*Customer Note:* ${note}\n`;
+            }
+            msg += `*Location:* Devender Puri, Modinagar\n`;
+            msg += `Please confirm order preparation time. Thank you!`;
+
+            const encoded = encodeURIComponent(msg);
+            window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+        }
+
+        // Menu category filter
+        function filterMenu(category, btn) {
+            document.querySelectorAll('.menu-tab-btn').forEach(b => {
+                b.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+                b.classList.add('bg-white', 'text-gray-700');
+            });
+            btn.classList.remove('bg-white', 'text-gray-700');
+            btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Share Feature
+        function shareListing() {
+            const shareData = {
+                title: 'CHAUHAN HOME MADE FOOD - Modinagar',
+                text: 'Order delicious pure home made food in Modinagar! 5.0 Star rated takeaway on Modinagar-Niwari Rd.',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast("Link copied to clipboard!");
+            }
+        }
+
+        // Save toggle
+        let isSaved = false;
+        function toggleSave() {
+            isSaved = !isSaved;
+            const icon = document.getElementById('saveIcon');
+            const text = document.getElementById('saveText');
+            if (isSaved) {
+                icon.className = "fas fa-bookmark text-brand-600";
+                text.textContent = "Saved";
+                showToast("Added to your saved places");
+            } else {
+                icon.className = "far fa-bookmark";
+                text.textContent = "Save";
+                showToast("Removed from saved places");
+            }
+        }
+
+        // Review Modal Handlers
+        function openReviewModal() {
+            document.getElementById('reviewModal').classList.remove('hidden');
+        }
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+        }
+        function setRating(stars) {
+            showToast(`Selected ${stars} Stars! Thank you.`);
+        }
+        function submitReview() {
+            const name = document.getElementById('revName').value;
+            if(!name) {
+                showToast("Please enter your name");
+                return;
+            }
+            closeReviewModal();
+            showToast("Thank you for your 5-Star review!");
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const text = document.getElementById('toastMsg');
+            text.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
